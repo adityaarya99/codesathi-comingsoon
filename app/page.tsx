@@ -22,8 +22,10 @@ export default function ComingSoonPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden pl-16 pr-16">
       <ParticleBackground />
+
+    
       {/* <div style={{ width: '100%', height: 600, position: 'relative' }}>
         <LiquidEther
           colors={['#5227FF', '#FF9FFC', '#B19EEF']}
@@ -43,11 +45,14 @@ export default function ComingSoonPage() {
           autoRampDuration={0.6}
         />
       </div> */}
+
+    
       <div className="fixed inset-0 laser-background pointer-events-none" />
 
       <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 gap-8 lg:gap-16">
         {/* Left Side - Header and Content */}
         <div className="flex-1 text-center lg:text-left max-w-2xl">
+         
           {/* Logo Placeholder */}
           {/* <div className="mb-8 animate-float flex justify-center lg:justify-start">
             <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-2xl font-bold text-primary-foreground glow-pulse">
@@ -57,13 +62,16 @@ export default function ComingSoonPage() {
 
           <div className="mb-4 animate-float flex flex-row justify-center lg:justify-start items-end">
             {/* Logo */}
-            <Image
-              src="/monogram.svg"
-              alt="CodeSathi Logo"
-              className="mr-2"
-              width={86}
-              height={86}
-            />
+            <div className="w-12 sm:w-8 md:w-20 lg:w-24 xl:w-28 2xl:w-32 h-auto">
+              <Image
+                src="/monogram.svg"
+                alt="CodeSathi Logo"
+                width={86}
+                height={86}
+                className="w-full h-auto"
+              />
+            </div>
+
 
             {/* Text */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance sm:mt-8 mt-32">
@@ -87,8 +95,8 @@ export default function ComingSoonPage() {
 
 
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-balance">
-            <TypewriterText text="Your Code Mentor is Coming Soon"/>
-          </h2> 
+            <TypewriterText text="Your Code Mentor is Coming Soon" />
+          </h2>
 
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
@@ -114,12 +122,12 @@ export default function ComingSoonPage() {
       </section >
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border/50 laser-flow">
+      <footer className="my-8 py-4 px-4 border-t border-border/50 laser-flow">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
             © 2025 CodeSathi. All rights reserved. <br />
             <ShinyText
-              text="Enteffe x CodeSathi: Experience Delivered"
+              text="Powered By Enteffe"
               disabled={false}
               speed={10}
               className='custom-class font-bold'
