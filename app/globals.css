@@ -156,9 +156,172 @@
   }
 }
 
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
+@keyframes number-flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
+
+@keyframes split-text {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    border-color: transparent;
+  }
+  51%,
+  100% {
+    border-color: currentColor;
+  }
+}
+
+@keyframes particle-float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translateY(-10px) translateX(-10px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes laser-flow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes magnetic-hover {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(var(--mouse-x, 0), var(--mouse-y, 0)) scale(1.05);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+/* Adding enhanced laser flow background animation */
+@keyframes laser-background {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.laser-background {
+  background: linear-gradient(45deg, transparent 30%, rgba(124, 58, 237, 0.1) 50%, transparent 70%);
+  background-size: 200% 200%;
+  animation: laser-background 8s ease-in-out infinite;
+}
+
+/* Removing the expensive animate-glow and replacing with performant alternatives */
+.animate-number-flip {
+  animation: number-flip 0.6s ease-in-out;
+}
+
+.animate-split-text {
+  animation: split-text 0.8s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid;
+  white-space: nowrap;
+  animation: typewriter 3s steps(40, end), blink 0.75s step-end infinite;
+}
+
+.particle {
+  animation: particle-float 6s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.laser-flow {
+  position: relative;
+  overflow: hidden;
+}
+
+.laser-flow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7c3aed, transparent);
+  animation: laser-flow 2s ease-in-out infinite;
+}
+
+.magnetic-button {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.magnetic-button:hover {
+  animation: magnetic-hover 0.3s ease-out forwards;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+/* Removing the old expensive glow animation */
+/* .animate-glow {
+  animation: glow 2s ease-in-out infinite;
+} */
 
 .animate-float {
   animation: float 3s ease-in-out infinite;

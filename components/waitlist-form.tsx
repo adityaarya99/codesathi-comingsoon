@@ -3,9 +3,9 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CheckCircle } from "lucide-react"
+import { MagneticButton } from "@/components/magnetic-button"
 
 export function WaitlistForm() {
   const [email, setEmail] = useState("")
@@ -62,7 +62,7 @@ export function WaitlistForm() {
               <span>Progress</span>
               <span className="text-primary">{inviteCount}/3</span>
             </div>
-            <div className="w-full bg-secondary rounded-full h-2">
+            <div className="w-full bg-secondary rounded-full h-2 laser-flow">
               <div
                 className="bg-primary h-2 rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${(inviteCount / 3) * 100}%` }}
@@ -75,30 +75,24 @@ export function WaitlistForm() {
           )}
 
           <div className="flex justify-center gap-3">
-            <Button
-              variant="outline"
-              size="sm"
+            <MagneticButton
               onClick={() => handleShare("twitter")}
-              className="hover:bg-primary/10 hover:border-primary/50"
+              className="bg-transparent border border-primary/20 hover:bg-primary/10 hover:border-primary/50 text-foreground"
             >
               Twitter
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
+            </MagneticButton>
+            <MagneticButton
               onClick={() => handleShare("linkedin")}
-              className="hover:bg-primary/10 hover:border-primary/50"
+              className="bg-transparent border border-primary/20 hover:bg-primary/10 hover:border-primary/50 text-foreground"
             >
               LinkedIn
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
+            </MagneticButton>
+            <MagneticButton
               onClick={() => handleShare("whatsapp")}
-              className="hover:bg-primary/10 hover:border-primary/50"
+              className="bg-transparent border border-primary/20 hover:bg-primary/10 hover:border-primary/50 text-foreground"
             >
               WhatsApp
-            </Button>
+            </MagneticButton>
           </div>
         </div>
       </div>
@@ -116,12 +110,9 @@ export function WaitlistForm() {
           required
           className="flex-1 bg-card border-primary/20 focus:border-primary"
         />
-        <Button
-          type="submit"
-          className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 hover:scale-105 transition-transform"
-        >
+        <MagneticButton type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6">
           Join Waitlist
-        </Button>
+        </MagneticButton>
       </div>
     </form>
   )
