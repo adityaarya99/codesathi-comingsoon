@@ -1,19 +1,33 @@
-import { CountdownTimer } from "@/components/countdown-timer"
-import { WaitlistForm } from "@/components/waitlist-form"
-import { Github, Linkedin, Twitter } from "lucide-react"
+import dynamic from "next/dynamic";
+import { Github, Linkedin, Twitter } from "lucide-react";
+import Image from "next/image";
+
+// Lazy load components
+const CountdownTimer = dynamic(() => import("@/components/countdown-timer").then((mod) => mod.CountdownTimer), { ssr: false });
+const WaitlistForm = dynamic(() => import("@/components/waitlist-form").then((mod) => mod.WaitlistForm), { ssr: false });
 
 export default function ComingSoonPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
+      {/* Header Section */}
+      <header className="absolute top-4 left-4">
+        <div className="flex items-center">
+          <a href="/" className="text-2xl font-bold text-white">
+            Code<span className="text-primary">Sathi</span>
+          </a>
+        </div>
+      </header>
+
       {/* Background Animation */}
-      <div className="fixed inset-0 animate-pulse-glow pointer-events-none" />
+      {/* <div className="fixed inset-0 animate-pulse-glow pointer-events-none" /> */}
+      <div className="fixed inset-0 bg-gradient-to-br from-primary/10 to-background pointer-events-none animate-pulse-glow" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center">
         {/* Logo Placeholder */}
         <div className="mb-8 animate-float">
           <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-2xl font-bold text-primary-foreground">
-            CS
+          <Image src="/monogram.svg" alt="CodeSathi Logo" width={64} height={64} />
           </div>
         </div>
 
@@ -22,6 +36,7 @@ export default function ComingSoonPage() {
           Your Code Mentor is <span className="text-primary">Coming Soon</span>{" "}
           <span className="inline-block animate-bounce">🚀</span>
         </h1>
+        
 
         {/* Subtext */}
         <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-balance max-w-2xl">
@@ -80,5 +95,5 @@ export default function ComingSoonPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }

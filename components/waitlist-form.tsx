@@ -1,13 +1,13 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { CheckCircle } from "lucide-react"
 
-export function WaitlistForm() {
+export const WaitlistForm = React.memo(() => {
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [inviteCount, setInviteCount] = useState(0)
@@ -125,4 +125,4 @@ export function WaitlistForm() {
       </div>
     </form>
   )
-}
+})
