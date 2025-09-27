@@ -353,3 +353,31 @@ html {
 .align-fix {
   vertical-align: baseline;
 }
+
+.shiny-text {
+  color: transparent; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 215, 0, 0) 40%,      /* transparent gold */
+    rgba(255, 215, 0, 0.8) 50%,    /* bright gold */
+    rgba(255, 215, 0, 0) 60%       /* transparent gold */
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0; /* start off to the right */
+  }
+  100% {
+    background-position: -200% 0; /* move fully to the left */
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}

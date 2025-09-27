@@ -1,15 +1,27 @@
+'use client'
 
 import { CountdownTimer } from "@/components/countdown-timer"
 import { WaitlistForm } from "@/components/waitlist-form"
 import { SplitText } from "@/components/split-text"
 import { TypewriterText } from "@/components/typewriter-text"
 import { ParticleBackground } from "@/components/particle-background"
-import { Github, Link, Linkedin, Twitter } from "lucide-react"
-import LiquidEther from "@/components/ui/liquid_ether"
+import { Github, Link, Linkedin, Twitter, X } from "lucide-react"
+import Image from "next/image"
+import ShinyText from "@/components/ui/shiny_text"
+import { useEffect } from "react"
 
 export default function ComingSoonPage() {
-  return (
 
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
+
+  useEffect(() => {
+    // Scroll to the top of the page on refresh
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <ParticleBackground />
       {/* <div style={{ width: '100%', height: 600, position: 'relative' }}>
@@ -44,21 +56,40 @@ export default function ComingSoonPage() {
           </div> */}
 
           <div className="mb-4 animate-float flex flex-row justify-center lg:justify-start items-end">
-            <img
+            {/* Logo */}
+            <Image
               src="/monogram.svg"
               alt="CodeSathi Logo"
-              className="w-16 h-16 mr-2"
+              className="mr-2"
+              width={86}
+              height={86}
             />
+
+            {/* Text */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance sm:mt-8 mt-32">
-              <SplitText text="CodeSathi" className="text-primary" />
+              <SplitText
+                text="CodeSathi"
+                className="text-primary"
+                delay={100}
+                duration={0.6}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.1}
+                rootMargin="-100px"
+                textAlign="center"
+                onLetterAnimationComplete={handleAnimationComplete}
+              />
+              {/* <SplitText text="CodeSathi" className="text-primary" /> */}
             </h1>
           </div>
 
 
-
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-balance">
-            <TypewriterText text="Your Code Mentor is Coming Soon" delay={1000} />
-          </h2>
+            <TypewriterText text="Your Code Mentor is Coming Soon"/>
+          </h2> 
+
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
             Find expert developers. Book sessions. Pay seamlessly.
@@ -87,12 +118,18 @@ export default function ComingSoonPage() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
             © 2025 CodeSathi. All rights reserved. <br />
-            <span className="text-gray-400">A product of Enteffe</span>
+            <ShinyText
+              text="Enteffe x CodeSathi: Experience Delivered"
+              disabled={false}
+              speed={10}
+              className='custom-class font-bold'
+            />
+            {/* <span className="text-gray-700">A Product of Enteffe</span> */}
           </div>
 
           <div className="flex items-center gap-4">
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/codesathi"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform"
@@ -100,15 +137,15 @@ export default function ComingSoonPage() {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/CodeSathi"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform"
             >
-              <Twitter className="w-5 h-5" />
+              <X className="w-5 h-5" />
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/enteffe"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform"

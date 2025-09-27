@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "CodeSathi - Your Code Mentor is Coming Soon",
   description: "Find expert developers. Book sessions. Pay seamlessly. Coming in 2026.",
   icons: {
-    icon: "/monogram-logo.png",
+    icon: "/monogram.svg",
   },
   generator: "enteffe",
 }
