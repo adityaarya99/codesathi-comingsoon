@@ -1,69 +1,65 @@
-import dynamic from "next/dynamic";
-import { Github, Linkedin, Twitter } from "lucide-react";
-import Image from "next/image";
 
-// Lazy load components
-const CountdownTimer = dynamic(() => import("@/components/countdown-timer").then((mod) => mod.CountdownTimer), { ssr: false });
-const WaitlistForm = dynamic(() => import("@/components/waitlist-form").then((mod) => mod.WaitlistForm), { ssr: false });
+import { CountdownTimer } from "@/components/countdown-timer"
+import { WaitlistForm } from "@/components/waitlist-form"
+import { SplitText } from "@/components/split-text"
+import { TypewriterText } from "@/components/typewriter-text"
+import { ParticleBackground } from "@/components/particle-background"
+import { Github, Linkedin, Twitter } from "lucide-react"
+  import dynamic from "next/dynamic";
+  import Image from "next/image";
 
 export default function ComingSoonPage() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      {/* Header Section */}
-      <header className="absolute top-4 left-4">
-        <div className="flex items-center">
-          <a href="/" className="text-2xl font-bold text-white">
-            Code<span className="text-primary">Sathi</span>
-          </a>
-        </div>
-      </header>
+      <ParticleBackground />
 
-      {/* Background Animation */}
-      {/* <div className="fixed inset-0 animate-pulse-glow pointer-events-none" /> */}
-      <div className="fixed inset-0 bg-gradient-to-br from-primary/10 to-background pointer-events-none animate-pulse-glow" />
+      <div className="fixed inset-0 laser-background pointer-events-none" />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center">
-        {/* Logo Placeholder */}
-        <div className="mb-8 animate-float">
-          <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-2xl font-bold text-primary-foreground">
-          <Image src="/monogram.svg" alt="CodeSathi Logo" width={64} height={64} />
+      <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 gap-8 lg:gap-16">
+        {/* Left Side - Header and Content */}
+        <div className="flex-1 text-center lg:text-left max-w-2xl">
+          {/* Logo Placeholder */}
+          <div className="mb-8 animate-float flex justify-center lg:justify-start">
+            <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-2xl font-bold text-primary-foreground glow-pulse">
+              CS
+            </div>
+          </div>
+
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
+            <SplitText text="CodeSathi" className="text-primary" />
+          </h1>
+
+
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-balance">
+            <TypewriterText text="Your Code Mentor is Coming Soon" delay={1500} />
+          </h2>
+
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
+            Find expert developers. Book sessions. Pay seamlessly.
+          </p>
+
+          {/* Waitlist Form */}
+          <div className="mb-8">
+            <WaitlistForm />
           </div>
         </div>
 
-        {/* Main Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-          Your Code Mentor is <span className="text-primary">Coming Soon</span>{" "}
-          <span className="inline-block animate-bounce">🚀</span>
-        </h1>
-        
-
-        {/* Subtext */}
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 text-balance max-w-2xl">
-          Find expert developers. Book sessions. Pay seamlessly.
-        </p>
-
-        {/* Waitlist Form */}
-        <div className="mb-16">
-          <WaitlistForm />
-        </div>
-      </section>
-
-      {/* Countdown Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">
-            {"We're launching in 2026"} <span className="inline-block">⏳</span>
-          </h2>
-          <p className="text-muted-foreground mb-12">Get ready for the future of code mentoring</p>
-
+        {/* Right Side - Countdown Timer */}
+        <div className="flex-1 max-w-lg">
+          <div className="text-center mb-8">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              We're launching in 2026 <span className="inline-block">⏳</span>
+            </h3>
+            <p className="text-muted-foreground">Get ready for the future of code mentoring</p>
+          </div>
           <CountdownTimer />
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border/50">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <footer className="py-8 px-4 border-t border-border/50 laser-flow">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">© 2025 CodeSathi. All rights reserved.</div>
 
           <div className="flex items-center gap-4">
