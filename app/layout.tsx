@@ -13,7 +13,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "CodeSathi - Your Code Mentor is Coming Soon",
   description: "Find expert developers. Book sessions. Pay seamlessly. Coming in 2026.",
-  generator: "v0.app",
+  icons: {
+    icon: "/monogram-logo.png",
+  },
+  generator: "enteffe",
 }
 
 export default function RootLayout({

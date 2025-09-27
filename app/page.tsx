@@ -1,9 +1,12 @@
+
 import { CountdownTimer } from "@/components/countdown-timer"
 import { WaitlistForm } from "@/components/waitlist-form"
 import { SplitText } from "@/components/split-text"
 import { TypewriterText } from "@/components/typewriter-text"
 import { ParticleBackground } from "@/components/particle-background"
 import { Github, Linkedin, Twitter } from "lucide-react"
+  import dynamic from "next/dynamic";
+  import Image from "next/image";
 
 export default function ComingSoonPage() {
   return (
@@ -22,9 +25,11 @@ export default function ComingSoonPage() {
             </div>
           </div>
 
+
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
             <SplitText text="CodeSathi" className="text-primary" />
           </h1>
+
 
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-balance">
             <TypewriterText text="Your Code Mentor is Coming Soon" delay={1500} />
@@ -86,5 +91,5 @@ export default function ComingSoonPage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
