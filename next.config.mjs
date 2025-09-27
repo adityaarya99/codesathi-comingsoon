@@ -2,7 +2,6 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: '/codesathi-comingsoon',
   eslint: {
     ignoreDuringBuilds: true,
   },
