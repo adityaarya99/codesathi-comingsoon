@@ -349,3 +349,7 @@ html {
 .animate-pulse-glow {
   animation: pulseGlow 3s infinite ease-in-out;
 }
+
+.align-fix {
+  vertical-align: baseline;
+}

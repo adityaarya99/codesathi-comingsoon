@@ -4,35 +4,60 @@ import { WaitlistForm } from "@/components/waitlist-form"
 import { SplitText } from "@/components/split-text"
 import { TypewriterText } from "@/components/typewriter-text"
 import { ParticleBackground } from "@/components/particle-background"
-import { Github, Linkedin, Twitter } from "lucide-react"
-  import dynamic from "next/dynamic";
-  import Image from "next/image";
+import { Github, Link, Linkedin, Twitter } from "lucide-react"
+import LiquidEther from "@/components/ui/liquid_ether"
 
 export default function ComingSoonPage() {
   return (
+
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       <ParticleBackground />
-
+      {/* <div style={{ width: '100%', height: 600, position: 'relative' }}>
+        <LiquidEther
+          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
+          mouseForce={20}
+          cursorSize={100}
+          isViscous={false}
+          viscous={30}
+          iterationsViscous={32}
+          iterationsPoisson={32}
+          resolution={0.5}
+          isBounce={false}
+          autoDemo={true}
+          autoSpeed={0.5}
+          autoIntensity={2.2}
+          takeoverDuration={0.25}
+          autoResumeDelay={3000}
+          autoRampDuration={0.6}
+        />
+      </div> */}
       <div className="fixed inset-0 laser-background pointer-events-none" />
 
       <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 gap-8 lg:gap-16">
         {/* Left Side - Header and Content */}
         <div className="flex-1 text-center lg:text-left max-w-2xl">
           {/* Logo Placeholder */}
-          <div className="mb-8 animate-float flex justify-center lg:justify-start">
+          {/* <div className="mb-8 animate-float flex justify-center lg:justify-start">
             <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center text-2xl font-bold text-primary-foreground glow-pulse">
               CS
             </div>
+          </div> */}
+
+          <div className="mb-4 animate-float flex flex-row justify-center lg:justify-start items-end">
+            <img
+              src="/monogram.svg"
+              alt="CodeSathi Logo"
+              className="w-16 h-16 mr-2"
+            />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance sm:mt-8 mt-32">
+              <SplitText text="CodeSathi" className="text-primary" />
+            </h1>
           </div>
 
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
-            <SplitText text="CodeSathi" className="text-primary" />
-          </h1>
-
 
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-balance">
-            <TypewriterText text="Your Code Mentor is Coming Soon" delay={1500} />
+            <TypewriterText text="Your Code Mentor is Coming Soon" delay={1000} />
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 text-balance">
@@ -55,12 +80,15 @@ export default function ComingSoonPage() {
           </div>
           <CountdownTimer />
         </div>
-      </section>
+      </section >
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-border/50 laser-flow">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-muted-foreground">© 2025 CodeSathi. All rights reserved.</div>
+          <div className="text-sm text-muted-foreground">
+            © 2025 CodeSathi. All rights reserved. <br />
+            <span className="text-gray-400">A product of Enteffe</span>
+          </div>
 
           <div className="flex items-center gap-4">
             <a
@@ -90,6 +118,6 @@ export default function ComingSoonPage() {
           </div>
         </div>
       </footer>
-    </div>
+    </div >
   );
 }

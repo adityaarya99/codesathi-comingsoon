@@ -100,8 +100,8 @@ export const WaitlistForm = React.memo(() => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <div className="flex gap-2">
+    <form onSubmit={handleSubmit} className="max-w-md">
+      <div className="flex flex-row items-center gap-2">
         <Input
           type="email"
           placeholder="Enter your email"
